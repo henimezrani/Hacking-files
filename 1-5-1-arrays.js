@@ -20,6 +20,13 @@ function last(array){
 	return array[array.length-1] ;
 }
 
+var arr = [2, 3, 4];
+arr.unshift(1);
+arr.unshift(0);
+arr.push(5);
+arr.push(6);
+arr.push(7);
+
 var numbers = [4, 9, 7, 2, 1, 8];
 
 for (i=0;i<numbers.length;i++){
