@@ -91,6 +91,8 @@ function range(min,max){
 	return min + ", " + range(min+1, max)
 }
 
+// ADVANCED
+
 function stringLength(str){
 	if(str === ""){
 		return 0 
