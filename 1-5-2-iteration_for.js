@@ -1,3 +1,5 @@
+// COMPLETE
+
 function sumOfArray(array){
 	var sum =0;
 	for(var i = 0; i<array.length;i++)
@@ -54,6 +56,21 @@ function removeWhile(array, a){
 	return newArray;
 
 }
+
+function evens(array){
+	var newArray = [];
+	var counter = 0;
+	var i = 0;
+	while(i<array.length){
+		if (array[i]%2 === 0){
+			newArray[counter] = array[i];
+			counter++;
+		}
+		i++;
+	}
+	return newArray;
+}
+		
 
 // MORE PRACTICE
 
