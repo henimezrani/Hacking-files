@@ -151,7 +151,11 @@ function securityCheck(array){
 			elem['user'].flag = true;
 		}
 		if((elem['user'].password.toLowerCase() === elem['user'].password)&&(/\d/.test(elem['user'].password))){
-			elem['user'].health = 'normal';
+			if (/\d/.==elem['user'].password.length){
+				elem['user'].health = 'weak';
+			} else {
+				elem['user'].health = 'normal';
+			}
 		}
 		else if(elem['user'].password.toLowerCase() === elem['user'].password){
 			elem['user'].health = 'weak';
@@ -163,3 +167,32 @@ function securityCheck(array){
 	})
 
  } 
+
+// Method 2 
+
+function securityCheck(array){ 
+	return map(array,function (elem,key){
+		if(elem['user'].password.length<8){
+			elem['user'].flag = false;
+		}
+		else{
+			elem['user'].flag = true;
+		}
+		if((elem['user'].password.toLowerCase() === elem['user'].password)&&(/\d/.test(elem['user'].password))){
+			if (/\d+/g.exec(elem['user'].password)["0"]===elem['user'].password){
+				elem['user'].health = 'weak';
+			} else {
+				elem['user'].health = 'normal';
+			}
+		}
+		else if(elem['user'].password.toLowerCase() === elem['user'].password){
+			elem['user'].health = 'weak';
+		}
+		else {
+			elem['user'].health = 'Strong';
+		}
+		return elem;
+	})
+
+ }
+
