@@ -1,0 +1,144 @@
+// Basic Requirments
+
+// A - 0 
+
+function makeAccount(initial) {
+    var balance = initial;
+    return {
+        withdraw: function(amount) {
+          	if (balance - amount >= 0) {
+          		balance = balance - amount;
+          		return 'Here’s your money: $' + amount;
+     		}
+     		return 'Insufficient funds.';
+		},
+    	deposit: function(amount) {
+          	balance = balance + amount;
+          	return 'Your balance is: $' + balance;
+        }
+    };
+}
+
+// A - 1
+
+function makeAccount(initial) {
+    var balance = initial;
+    return {
+        withdraw: function(amount) {
+          	if (balance - amount >= 0) {
+          		balance = balance - amount;
+          		return 'Here’s your money: $' + amount;
+     		}
+     		return 'Insufficient funds.';
+		},
+    	deposit: function(amount) {
+          	balance = balance + amount;
+          	return 'Your balance is: $' + balance;
+        },
+        checkbalance: function(){
+        	return balance;
+        }
+    };
+}
+
+// A - 2
+
+
+function makeCounter(initial){
+	var count = initial;
+	return {
+		up: function(initial){
+			count = count +1;
+			return count;
+		},
+		down: function(initial){
+			count = count -1;
+			return count;
+		}
+	}
+}
+
+// A - 3
+
+function makeCounter(initial){
+	var count = initial;
+	return {
+		up: function(){
+			count = count +1;
+			return count;
+		},
+		down: function(){
+			count = count -1;
+			return count;
+		},
+		reset: function(){
+			count = initial;
+		}
+	}
+}
+
+// MORE PRACTICE
+
+// A - 1
+
+
+
+function makeGame(ub){
+	var upperBound = ub;
+	var numberg = Math.floor(Math.random() * (upperBound + 1));
+	var trials= 0;
+	return {
+		play : function(n){
+			trials++;
+			if (n > upperBound) {
+		        return 'Out of bounds! Please try a number between 0 and ' + upperBound + '.';
+		    } else if (n === numberg) {
+		    	var str ='you guessed my number in '+trials+' times .now guess an other number'
+		    	trials=0;
+				numberg = Math.floor(Math.random() * (upperBound + 1));
+		        return str;
+		    }
+		    return 'Nope! That was nnt it!';
+
+		},
+		numGuesses:function(){
+			return trials;
+		},
+		giveUp: function(){
+			trials=0;
+			numberg = Math.floor(Math.random() * (upperBound + 1));
+		}
+
+	}
+}
+
+// A - 2
+function makeGame(ub){
+	var upperBound = ub;
+	var numberg = Math.floor(Math.random() * (upperBound + 1));
+	var trials= 0;
+	return function play (n){
+		trials++;
+		if (n > upperBound) {
+	        console.log('Out of bounds! Please try a number between 0 and ' + upperBound + '.');
+	    } else if (n === numberg) {
+	    	var str ='you guessed my number in '+trials+' times .now guess an other number'
+	    	trials=0;
+			numberg = Math.floor(Math.random() * (upperBound + 1));
+	        console.log(str);
+	    } else {
+	    	console.log('Nope! That was nnt it!');
+	    }
+	    return {
+	    	numGuesses:function(){
+				return trials;
+			},
+			giveUp: function(){
+				trials=0;
+				numberg = Math.floor(Math.random() * (upperBound + 1));
+			}
+	    }
+	}
+
+	
+}
