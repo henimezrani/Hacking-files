@@ -1,0 +1,23 @@
+a {
+	text-decoration: none;
+	background-color: #DF1A34  ;
+	padding: 10px 30px;
+	border: solid .5px ;
+	border-radius: 10px;
+	color: white;
+
+}
+a:hover{
+	background-color: #E6344C;
+
+}
+
+/*#hidden{
+
+	display: none;
+	overflow: hidden;
+
+}
+*/
+
+
